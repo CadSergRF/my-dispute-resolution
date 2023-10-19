@@ -1,0 +1,27 @@
+.button {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	color: #f9faff;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	/* шрифты */
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 19px;
+	letter-spacing: 0em;
+}
+.button_size_large {
+	padding: 20px 0 20px 0;
+	min-width: 381px;
+}
+.button_disabled_true {
+	opacity: 0.2;
+}
+.button_color_blue {
+	background-color: #3547e9;
+}
