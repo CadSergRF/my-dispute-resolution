@@ -1,3 +1,114 @@
 .new-dispute-opponents {
-  min-height: 54px;
+	min-height: 54px;
+}
+
+.new-dipute-opponents__choice {
+	padding: 10px 16px 13px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.new-dispute-opponents__selected {
+	display: flex;
+	gap: 27px;
+}
+
+.new-dispute-opponents__selected-item {
+	display: flex;
+	height: 22px;
+	gap: 7px;
+}
+
+.new-dispute-opponents__selected-name {
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 22.4px;
+}
+
+.new-dispute-opponents__selected-button {
+	border: none;
+	width: 20px;
+	height: 20px;
+	background-image: url(../../../../Images/closeIcon_file.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.new-dispute-opponents__input-frame {
+	min-width: 105px;
+	display: flex;
+	flex-grow: 1;
+}
+
+.new-dispute-opponents__input-section {
+	min-width: 100px;
+	flex-grow: 1;
+	position: relative;
+}
+
+.new-dispute-opponents__input {
+	width: 100%;
+	border: none;
+}
+.new-dispute-opponents__input {
+	outline: none;
+}
+
+.new-dispute-opponents__input-modal {
+	position: absolute;
+	border: 1px solid #000;
+	padding: 0;
+	left: 10px;
+	bottom: -155px;
+	max-height: 150px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility 0.5s linear, opacity 0.5s linear;
+}
+
+.new-dispute-opponents__input-modal:focus {
+	outline: none !important;
+}
+
+.new-dispute-opponents__input-modal:focus-within {
+	outline: none !important;
+}
+
+.new-dispute-opponents__input-modal_opened {
+	opacity: 1;
+	visibility: visible;
+}
+
+.new-dispute-opponents__modal-item {
+	padding: 0 5px;
+	text-align: left;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.new-dispute-opponents__modal-item:hover {
+	background-color: rgb(235, 235, 235);
+}
+
+.new-dispute-opponents__button {
+	border: none;
+	width: 15px;
+	height: 11px;
+	background-image: url(../../../../Images/Button_Arrow.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
 }

@@ -18,15 +18,70 @@ const NewDisputeForm = () => {
   const [disputeText, setDisputeText] = useState({}); // Суть конфликта
   const [fileList, setFileList] = useState([]); // Массив файлов для загрузки
   const [freeSize, setFreeSize] = useState(10); // Объем свободного места
-  const [isErrorSize, setIsErrorSize] = useState(false) // Ошибка: превышение maxFilesSize
-  const [isErrorQuantity, setIsErrorQuantity] = useState(false) // Ошибка: превышено допустимое количество файлов
+  const [isErrorSize, setIsErrorSize] = useState(false); // Ошибка: превышение maxFilesSize
+  const [isErrorQuantity, setIsErrorQuantity] = useState(false); // Ошибка: превышено допустимое количество файлов
+
+  const [selectedOpponents, setSelectedOpponents] = useState([]); // Массив выбранных опонентов
+  const [chooseOpponentModal, setChooseOpponentModal] = useState(false); // Модалка выбора оппонента
+  const [possibleOpponents, setPossibleOpponents] = useState([]); // Массив возможных опонентов для выбора
+  const [opponentsInput, setOpponentsInput] = useState({}) // Стейт инпута оппонентов
+
+  // Временные решения
+  const ourCommandYandex = [
+    'Бурнасова Анастасия',
+    'Погребнов Константин',
+    'Мокрова Алена',
+    'Савинова Даша',
+    'Екатерина Ильина',
+    'Роман Островский',
+    'Андрей Дочкин',
+    'Евдокимов Сергей',
+    'Мартьянова Светлана',
+    'Рачеев Максим',
+    'Шполянская Ольга',
+    'Кознов Алексей',
+    'Галиаскаров Артур',
+    'Ефимова Екатерина',
+    'Жеребцов Алексей',
+    'Кричун Анастасия',
+    'Лапина Виктория',
+    'Рудова Алёна',
+    'Макивоз Кирилл'
+  ]
+
+  const handleSetSelectedOpponents = () => {
+    setSelectedOpponents(['Сергей Евдокимов', 'Сергей Есенин'])
+  }
+
+
+  // Открытие модалки с выбором опонента
+  const handleOpponentsInput = (evt) => {
+    setChooseOpponentModal(true);
+    const { name, value } = evt.target;
+    setOpponentsInput((prev) => ({ ...prev, [name]: value }))
+    const findUser = ourCommandYandex.filter((item) => item.toLowerCase().includes(value.toLowerCase()))
+    setPossibleOpponents(findUser);
+  }
+  // Добавить оппонента
+  const handleAddOpponent = (item) => {
+    const updateList = [...selectedOpponents, item]
+    setSelectedOpponents(updateList);
+    setOpponentsInput('');
+    setChooseOpponentModal(false);
+    document.getElementById('new-dispute-opponents__input').focus();
+  }
+  // Удалить оппонента из выбранных
+  const handleDeleteOpponent = (item) => {
+    const updatedList = [...selectedOpponents];
+    updatedList.splice(selectedOpponents.indexOf(item), 1);
+    setSelectedOpponents(updatedList);
+  }
 
   // Сохранение значения поля "Суть конфликта" в отдельный стейт
   const handleNewDisputeTextChange = (evt) => {
     const { name, value } = evt.target;
     setDisputeText((prev) => ({ ...prev, [name]: value }))
-  }
-
+  };
   // Для объекта File - перевод bytes в Мб(число)
   const formatBytes = (bytes) => {
     if (!+bytes) return 0;
@@ -88,7 +143,68 @@ const NewDisputeForm = () => {
               Один или несколько
             </p>
           </div>
-          <div className='new-dipute-opponents__choice'>Опоненты</div>
+          <div className='new-dipute-opponents__choice'>
+            {/* Выбранные опоненты */}
+            {
+              selectedOpponents.length > 0 ? (
+                <div className='new-dispute-opponents__selected'>
+                  {
+                    selectedOpponents.map((item) => (
+                      <div className='new-dispute-opponents__selected-item'>
+                        <div className='new-dispute-opponents__selected-name'>
+                          {item}
+                        </div>
+                        <button
+                          className='new-dispute-opponents__selected-button'
+                          type='button'
+                          alt='Удалить оппонента'
+                          onClick={() => handleDeleteOpponent(item)}
+                        />
+                      </div>
+                    ))
+                  }
+                </div>
+              ) : null
+            }<div className='new-dispute-opponents__input-frame'>
+              <div className='new-dispute-opponents__input-section'>
+                <input
+                  id='new-dispute-opponents__input'
+                  className='new-dispute-opponents__input'
+                  name='opponents'
+                  value={opponentsInput.opponents || ''}
+                  type='text'
+                  onChange={handleOpponentsInput}
+                />
+                {/* Модалка выбор оппонента */}
+                <div className={`new-dispute-opponents__input-modal 
+              ${chooseOpponentModal && 'new-dispute-opponents__input-modal_opened'}`}
+                  style={possibleOpponents.length > 9 ? { bottom: '-155px' } : { bottom: `-${possibleOpponents.length * 20}px` }}
+                >
+                  {
+                    possibleOpponents.length > 0 ? (
+                      possibleOpponents.map((item) => (
+                        <button
+                          className='new-dispute-opponents__modal-item'
+                          onClick={() => handleAddOpponent(item)}
+                          alt='Добавить оппонента'
+                        >
+                          {item}
+                        </button>
+                      ))
+                    ) : (
+                      <p>Выбора нет</p>
+                    )
+                  }
+                </div>
+              </div>
+              <button
+                className='new-dispute-opponents__button'
+                type='button'
+                alt='Показать список возможных оппонентов'
+                onClick={handleSetSelectedOpponents}
+              />
+            </div>
+          </div>
         </div>
         {/* Блок с объяснением сути конфликта */}
         <div className='new-dispute-explanation new-dispute-form__item-wrapper'>
@@ -158,7 +274,7 @@ const NewDisputeForm = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
