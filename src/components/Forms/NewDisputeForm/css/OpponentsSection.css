@@ -1,9 +1,10 @@
 .new-dispute-opponents {
-	min-height: 54px;
+	min-height: 20px;
 }
 
 .new-dipute-opponents__choice {
-	padding: 10px 16px 13px;
+	box-sizing: border-box;
+	padding: 16px 16px;
 	border: 1px solid #000;
 	border-radius: 10px;
 	display: flex;
@@ -15,6 +16,7 @@
 .new-dispute-opponents__selected {
 	display: flex;
 	gap: 27px;
+	flex-wrap: wrap;
 }
 
 .new-dispute-opponents__selected-item {
@@ -27,7 +29,7 @@
 	font-family: 'Inter', sans-serif;
 	font-weight: 400;
 	font-size: 16px;
-	line-height: 22.4px;
+	line-height: 22px;
 }
 
 .new-dispute-opponents__selected-button {
@@ -45,6 +47,7 @@
 	min-width: 105px;
 	display: flex;
 	flex-grow: 1;
+	align-items: center;
 }
 
 .new-dispute-opponents__input-section {

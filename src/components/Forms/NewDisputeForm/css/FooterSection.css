@@ -1,9 +1,9 @@
 .new-dispute-footer {
-  min-height: 59px;
+	min-height: 59px;
 }
 
 .new-dispute-footer__used-zone {
-  display: flex;
-  justify-content: start;
-  gap: 30px;
+	display: flex;
+	justify-content: start;
+	gap: 30px;
 }
