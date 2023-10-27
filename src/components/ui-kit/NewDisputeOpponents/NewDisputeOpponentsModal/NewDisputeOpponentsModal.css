@@ -1,0 +1,60 @@
+.new-dispute-opponents__input-modal {
+	box-sizing: border-box;
+	position: absolute;
+	border: 1px solid #002a2a;
+	border-top: none;
+	border-radius: 0 0 10px 10px;
+	padding: 17px;
+	padding-right: 0;
+	top: 55px;
+	left: -1px;
+	width: 860px;
+	max-height: 444px;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	background-color: #fff;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1;
+}
+
+.new-dispute-opponents__input-modal:focus {
+	outline: none !important;
+}
+
+.new-dispute-opponents__input-modal:focus-within {
+	outline: none !important;
+}
+
+.new-dispute-opponents__input-modal_opened {
+	opacity: 1;
+	visibility: visible;
+}
+
+.new-dispute-opponents__modal-item {
+	width: 100%;
+	height: 44px;
+	padding: 10px 12px;
+	text-align: left;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.new-dispute-opponents__modal-item:hover {
+	background-color: #f3f5f5;
+}
+
+.new-dispute-opponents__modal-item_not-found {
+	cursor: default;
+}
+
+.new-dispute-opponents__modal-item_not-found:hover {
+	background-color: transparent;
+}

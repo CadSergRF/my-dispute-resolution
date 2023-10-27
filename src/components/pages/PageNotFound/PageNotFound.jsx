@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../../button/Button';
+import Button from '../../ui-kit/Button/Button';
 
 import PageNotFoundLogo from '../../../Images/PageNotFoundLogo.svg';
 import './PageNotFound.css';

@@ -1,0 +1,77 @@
+.new-dispute-form {
+	/* УБРАТЬ */
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.new-dispute-form__container {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	width: 1080px;
+	min-height: 633px;
+}
+
+.new-dispute-form__item-wrapper {
+	display: grid;
+	grid-template-columns: 200px 860px;
+	gap: 20px;
+}
+
+.new-dispute-form__item-title-wrapper {
+	box-sizing: border-box;
+	padding: 6.5px 0 0 12px;
+}
+
+.new-dispute-form__item-title-wrapper_large {
+	padding: 24px 0 0 12px;
+}
+
+.new-dispute-form__item-title {
+	margin: 0;
+	text-align: start;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	color: #131713;
+}
+
+.new-dispute-form__item-title_subtext {
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 14.5px;
+	color: #809595;
+}
+
+.new-dispute-footer {
+	min-height: 74px;
+}
+
+.new-dispute-footer__used-zone {
+	display: grid;
+	align-items: end;
+	grid-template-columns: 420px 420px;
+	gap: 20px;
+}
+
+.new-dispute-footer___button {
+	width: 420px;
+	height: 60px;
+	border: none;
+	border-radius: 10px;
+	background-color: #00696a;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 19.36px;
+	color: #ebeeee;
+}
+
+.file-preview {
+	height: 74px;
+	display: flex;
+	align-items: flex-end;
+	gap: 20px;
+}

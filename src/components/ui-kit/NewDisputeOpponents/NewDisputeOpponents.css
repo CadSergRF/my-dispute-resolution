@@ -1,0 +1,96 @@
+.new-dispute-opponents {
+	min-height: 20px;
+}
+
+.new-dipute-opponents__choice {
+	box-sizing: border-box;
+	padding: 8px 16px;
+	border: 1px solid #002a2a;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+	position: relative;
+	width: 860px;
+}
+
+.new-dipute-opponents__choice_opened {
+	border-radius: 10px 10px 0 0;
+	border-bottom: 1px solid #a7acca;
+}
+
+.new-dispute-opponents__selected {
+	display: flex;
+	gap: 27px;
+	flex-wrap: wrap;
+}
+
+.new-dispute-opponents__selected-item {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	height: 38px;
+	gap: 8px;
+	padding: 8px 12px;
+	background-color: #ebeeee;
+	border-radius: 6px;
+}
+
+.new-dispute-opponents__selected-name {
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.new-dispute-opponents__selected-button {
+	border: none;
+	width: 18px;
+	height: 18px;
+	background-image: url(../../../Images/Done.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.new-dispute-opponents__input-frame {
+	min-width: 105px;
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	min-height: 38px;
+}
+
+.new-dispute-opponents__input-section {
+	min-width: 100px;
+	flex-grow: 1;
+}
+
+.new-dispute-opponents__input {
+	width: 100%;
+	border: none;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+.new-dispute-opponents__input {
+	outline: none;
+}
+
+.new-dispute-opponents__button {
+	border: none;
+	width: 12px;
+	height: 7px;
+	background-image: url(../../../Images/cancel-icon.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.new-dispute-opponents__button_rotate {
+	transform: rotate(180deg);
+}

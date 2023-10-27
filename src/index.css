@@ -1,1 +1,5 @@
 @import url(./vendor/normalize.css);
+@import url(./vendor/fonts/Inter/inter.css);
+@import url(./config/css/colors.config.css);
+@import url(./config/css/common.config.css);
+@import url(./config/css/fonts.config.css);
