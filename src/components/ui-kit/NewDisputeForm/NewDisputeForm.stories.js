@@ -3,12 +3,13 @@ import NewDisputeForm from './NewDisputeForm';
 export default {
 	title: 'Dispute_Resolution/Forms/New dispute',
 	component: NewDisputeForm,
+	tags: ['autodocs'],
 	parameters: {
 		layout: 'fullscreen',
 	},
 	argTypes: {
 		initialOpponents: {
-			type: '[string]',
+			type: '[object]',
 			description: 'Стейт всех возможных значений для выбора',
 		},
 		selectedOpponents: {
@@ -22,4 +23,14 @@ export default {
 	},
 };
 
-export const Default = () => <NewDisputeForm />;
+// export const Default = () => <NewDisputeForm />;
+export const Create = {
+	args: {
+		isEditDispute: false,
+	},
+};
+export const Edit = {
+	args: {
+		isEditDispute: true,
+	},
+};

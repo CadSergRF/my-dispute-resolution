@@ -1,4 +1,5 @@
 import Input from './Input';
+import '../../../index.css';
 
 export default {
 	title: 'Dispute_Resolution/Input',

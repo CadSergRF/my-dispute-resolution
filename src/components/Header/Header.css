@@ -1,0 +1,98 @@
+.header {
+	margin: 0 auto;
+	padding: 24px 70px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: var(--Green-header, #003d3d);
+	position: relative;
+}
+
+.header__color_white {
+	background: transparent;
+}
+
+.header__logo {
+	margin: 0;
+	padding: 0;
+	width: 232px;
+	height: 60px;
+	background-image: url('../../Images/logo-white.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.header__user-avatar {
+	margin: 0 8px 0 36px;
+	padding: 0;
+	height: 55px;
+	width: 55px;
+	border-radius: 44px;
+	background: var(--secondary-button, #00696a);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+}
+
+.header__user-name {
+	margin: 0;
+	padding: 0;
+	color: var(--Background, #ebeeee);
+	text-align: center;
+	font-family: Inter;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.header__icon {
+	margin: 0;
+	padding: 0;
+	height: 12px;
+	width: 12px;
+	background-image: url('../../Images/shevronDown.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header__icon_up {
+	background-image: url('../../Images/shevronUp.svg');
+}
+
+.header__container {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+}
+
+.header__logo_color_green {
+	background-image: url('../../Images/logo-green.png');
+}
+
+.header__menu-container {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 80px;
+	top: 100px;
+	z-index: 5;
+}
+
+.header__menu-button {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}

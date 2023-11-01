@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './FilePreview.css';
 import { ImageConfig } from './config';
 
-export const FilePreview = ({ item, index, onDeleteFile }) => {
+export const FilePreview = ({ item, onDeleteFile }) => {
 	const { name, type } = item;
 	// Название без расширения
 	const pureName = name.split('.').slice(0, -1).join('.');
@@ -11,7 +11,7 @@ export const FilePreview = ({ item, index, onDeleteFile }) => {
 	const fileType = type.split('/').pop();
 
 	return (
-		<div key={`${index}_${name}_${type}`} className="drop-file-preview__item">
+		<div className="drop-file-preview__item">
 			<div className="drop-file-preview__img-wrapper">
 				<button
 					className="drop-file-preview__delete"
@@ -31,8 +31,8 @@ export const FilePreview = ({ item, index, onDeleteFile }) => {
 };
 
 FilePreview.propTypes = {
+	// TODO: расписать объект
 	// eslint-disable-next-line react/forbid-prop-types
 	item: PropTypes.object.isRequired,
-	index: PropTypes.number.isRequired,
 	onDeleteFile: PropTypes.func.isRequired,
 };

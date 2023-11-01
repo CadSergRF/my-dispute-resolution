@@ -1,0 +1,41 @@
+.menu {
+	width: 276px;
+	height: 132px;
+	margin: 0;
+	padding: 16px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-sizing: border-box;
+	position: relative;
+	box-shadow: 0px 4px 24px 0px rgba(0, 61, 61, 0.15);
+}
+
+.menu__links {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+}
+
+.menu__link-item {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+}
+
+.triangle {
+	margin: 0;
+	padding: 0;
+	width: 30px;
+	height: 20px;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	border-bottom: 30px solid #fff;
+	position: absolute;
+	right: 10px;
+	top: -12px;
+	box-sizing: border-box;
+	z-index: -1;
+}

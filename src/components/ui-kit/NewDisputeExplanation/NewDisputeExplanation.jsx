@@ -12,14 +12,16 @@ export const NewDisputeExplanation = ({
 		className="new-dispute-explanation__text"
 		name="newDisputeText"
 		minLength={25}
-		maxLength={2000}
-		placeholder="Подробно опишите суть конфликта"
+		maxLength={1000}
 		onChange={handleNewDisputeTextChange}
 		required
 	/>
 );
 
+NewDisputeExplanation.defaultProps = {
+	newDisputeText: '',
+};
 NewDisputeExplanation.propTypes = {
-	newDisputeText: PropTypes.string.isRequired,
+	newDisputeText: PropTypes.string,
 	handleNewDisputeTextChange: PropTypes.func.isRequired,
 };

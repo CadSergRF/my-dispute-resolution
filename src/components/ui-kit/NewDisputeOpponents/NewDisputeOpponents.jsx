@@ -1,39 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './NewDisputeOpponents.css';
 import { NewDisputeOpponentsModal } from './NewDisputeOpponentsModal/NewDisputeOpponentsModal';
 
-// Временные решения
-const exampleOpponents = [
-	'Бурнасова Анастасия',
-	'Погребнов Константин',
-	'Мокрова Алена',
-	'Савинова Даша',
-	'Екатерина Ильина',
-	'Роман Островский',
-	'Андрей Дочкин',
-	'Евдокимов Сергей',
-	'Мартьянова Светлана',
-	'Рачеев Максим',
-	'Шполянская Ольга',
-	'Кознов Алексей',
-	'Галиаскаров Артур',
-	'Ефимова Екатерина',
-	'Жеребцов Алексей',
-	'Кричун Анастасия',
-	'Лапина Виктория',
-	'Рудова Алёна',
-	'Макивоз Кирилл',
-];
+import { exampleOpponents } from './default.config';
 
 export const NewDisputeOpponents = ({
-	initialOpponents = exampleOpponents, // Стейт всех возможных
-	selectedOpponents = [], // Стейт уже выбранных
+	initialOpponentsApi, // Стейт всех возможных
+	selectedOpponents, // Стейт уже выбранных
 	handleSetSelectedOpponents, // Возвращаем новый стейт выбранных
 }) => {
 	// Массив возможных опонентов для выбора
-	const [possibleOpponents, setPossibleOpponents] = useState(initialOpponents);
+	const [possibleOpponents, setPossibleOpponents] = useState(exampleOpponents);
 	// Модалка выбора оппонента
 	const [chooseOpponentModal, setChooseOpponentModal] = useState(false);
 	// Промежуточный стейт показа оппонентов
@@ -41,8 +20,36 @@ export const NewDisputeOpponents = ({
 	// Стейт инпута оппонентов
 	const [opponentsInput, setOpponentsInput] = useState({});
 
+	// Определяем стейт возможных оппонентов при загрузке компонента
+	useEffect(() => {
+		if (initialOpponentsApi && initialOpponentsApi.length > 0) {
+			// Устанавливаем стейт возможных оппонентов
+			setPossibleOpponents(initialOpponentsApi);
+		}
+	}, [initialOpponentsApi]);
+
+	// Сортировка объекта
+	const sortObjOpponents = (dataObj) => {
+		dataObj.sort(
+			(a, b) =>
+				a.last_name.localeCompare(b.last_name) ||
+				a.first_name.localeCompare(b.first_name)
+		);
+		return dataObj;
+	};
+
+	// Фильтр стейта по значению инпута ( Фамилия -> Имя)
+	const filterObjOpponents = (dataObj, value) => {
+		const filtered = dataObj.filter(
+			(user) =>
+				user.last_name.toLowerCase().includes(value.toLowerCase()) ||
+				user.first_name.toLowerCase().includes(value.toLowerCase())
+		);
+		return filtered;
+	};
+
 	// Открытие модалки с выбором опонента
-	const handleOpponentsInput = (evt) => {
+	const handleChangeOpponentsInput = (evt) => {
 		const { name, value } = evt.target;
 		setOpponentsInput((prev) => ({ ...prev, [name]: value }));
 		if (!value) {
@@ -50,15 +57,14 @@ export const NewDisputeOpponents = ({
 			return;
 		}
 		setChooseOpponentModal(true);
-		const findUser = possibleOpponents.filter((item) =>
-			item.toLowerCase().includes(value.toLowerCase())
-		);
-		findUser.sort();
+		const findUser = filterObjOpponents(possibleOpponents, value);
 		setSearchOpponent(findUser);
 	};
+
 	// Модалка по стрелке
 	const showHidePossibleOpponents = () => {
-		setSearchOpponent(possibleOpponents.sort());
+		const sortedPossibleUsers = sortObjOpponents(possibleOpponents);
+		setSearchOpponent(sortedPossibleUsers);
 		setOpponentsInput(''); // Очищаем инпут
 		setChooseOpponentModal(!chooseOpponentModal);
 	};
@@ -69,20 +75,18 @@ export const NewDisputeOpponents = ({
 		document.getElementById('new-dispute-opponents__input').focus(); // Устанавливаем фокус на инпуте для дальнейшего выбора
 	};
 	// Добавить оппонента
-	const handleAddOpponent = (item) => {
+	const handleAddOpponent = (user) => {
 		setPossibleOpponents(possibleOpponents);
-		handleSetSelectedOpponents([...selectedOpponents, item]); // обновляем стейт выбранных оппонентов
-		const forPossible = [...possibleOpponents];
-		forPossible.splice(possibleOpponents.indexOf(item), 1); // Фильтруем стейт "Возможных" оппонентов (стейт для модалки)
-		setPossibleOpponents(forPossible); // Обновляем стейт "возможных"
+		handleSetSelectedOpponents([...selectedOpponents, user]); // обновляем стейт выбранных оппонентов
+		const updatedList = possibleOpponents.filter((cur) => cur.id !== user.id); // фильтруем стейт выбранных по id
+		setPossibleOpponents(updatedList);
 		handleCloseOpponentsModal();
 	};
 	// Удалить оппонента из выбранных
-	const handleDeleteOpponent = (item) => {
-		const updatedList = [...selectedOpponents];
-		updatedList.splice(selectedOpponents.indexOf(item), 1); // фильтруем стейт выбранных
+	const handleDeleteOpponent = (user) => {
+		const updatedList = selectedOpponents.filter((item) => item.id !== user.id); // фильтруем стейт выбранных
 		handleSetSelectedOpponents(updatedList); // Обновляем стейт
-		setPossibleOpponents([...possibleOpponents, item]); // Возвращаем оппонента в стейт "возможных"
+		setPossibleOpponents([...possibleOpponents, user]); // Возвращаем оппонента в стейт "возможных"
 	};
 
 	return (
@@ -94,8 +98,13 @@ export const NewDisputeOpponents = ({
 			{/* Выбранные опоненты */}
 			{selectedOpponents && selectedOpponents.length > 0
 				? selectedOpponents.map((item) => (
-						<div className="new-dispute-opponents__selected-item">
-							<div className="new-dispute-opponents__selected-name">{item}</div>
+						<div
+							key={`${item.first_name} ${item.last_name}`}
+							className="new-dispute-opponents__selected-item"
+						>
+							<div className="new-dispute-opponents__selected-name">
+								{`${item.first_name} ${item.last_name}`}
+							</div>
 							<button
 								className="new-dispute-opponents__selected-button"
 								type="button"
@@ -113,7 +122,7 @@ export const NewDisputeOpponents = ({
 						name="opponents"
 						value={opponentsInput.opponents || ''}
 						type="text"
-						onChange={handleOpponentsInput}
+						onChange={handleChangeOpponentsInput}
 					/>
 				</div>
 				<button
@@ -126,18 +135,43 @@ export const NewDisputeOpponents = ({
 				/>
 			</div>
 			{/* Модалка выбор оппонента */}
-			<NewDisputeOpponentsModal
-				searchOpponent={searchOpponent}
-				chooseOpponentModal={chooseOpponentModal}
-				handleAddOpponent={handleAddOpponent}
-				handleCloseOpponentsModal={handleCloseOpponentsModal}
-			/>
+			<div className="new-dipute-opponents__choice-glue-modal">
+				<NewDisputeOpponentsModal
+					searchOpponent={searchOpponent}
+					chooseOpponentModal={chooseOpponentModal}
+					handleAddOpponent={handleAddOpponent}
+					handleCloseOpponentsModal={handleCloseOpponentsModal}
+				/>
+			</div>
 		</div>
 	);
 };
 
+NewDisputeOpponents.defaultProps = {
+	initialOpponentsApi: [],
+	selectedOpponents: [],
+};
+
 NewDisputeOpponents.propTypes = {
-	initialOpponents: PropTypes.arrayOf(PropTypes.string).isRequired,
-	selectedOpponents: PropTypes.arrayOf(PropTypes.string).isRequired,
+	initialOpponentsApi: PropTypes.arrayOf(
+		PropTypes.shape({
+			email: PropTypes.string,
+			id: PropTypes.number,
+			first_name: PropTypes.string,
+			last_name: PropTypes.string,
+			phone_number: PropTypes.string,
+			role: PropTypes.string,
+		})
+	),
+	selectedOpponents: PropTypes.arrayOf(
+		PropTypes.shape({
+			email: PropTypes.string,
+			id: PropTypes.number,
+			first_name: PropTypes.string,
+			last_name: PropTypes.string,
+			phone_number: PropTypes.string,
+			role: PropTypes.string,
+		})
+	),
 	handleSetSelectedOpponents: PropTypes.func.isRequired,
 };

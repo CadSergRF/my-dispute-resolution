@@ -1,0 +1,46 @@
+.dispute-page {
+	margin: 60px 0 0 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.dispute-page__card-section {
+	margin: 0;
+	padding: 0;
+	border-bottom: 2px solid #a7acca;
+}
+
+.dispute-page__comment-form {
+	margin: 0;
+	padding: 0;
+	min-height: 13vh;
+	width: 100%;
+	background: #a7acca;
+}
+
+.createdDispute {
+	text-align: center;
+	font-family: 'Inter';
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: center;
+	color: #07a044;
+}
+
+.close-goDisputes {
+	width: 25px;
+	height: 25px;
+	border: none;
+	background-image: url(../../../Images/closeIcon.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
+	align-self: flex-end;
+	margin-bottom: 18px;
+}

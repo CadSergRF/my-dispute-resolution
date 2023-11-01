@@ -75,3 +75,15 @@
 	align-items: flex-end;
 	gap: 20px;
 }
+
+.new-dispute-form__goBack {
+	width: 25px;
+	height: 25px;
+	border: none;
+	background-image: url(../../../Images/closeIcon.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
+	align-self: flex-end;
+}

@@ -93,6 +93,7 @@
 	color: var(--Green-text);
 }
 .button_color_downy:hover {
+	/* нет в конфиге */
 	background-color: #56f2af;
 }
 .button_color_downy:focus {
@@ -114,7 +115,7 @@
 	color: var(--Background);
 }
 .button_color_blueLagoon:hover {
-	background-color: var(--secondary-button);
+	background-color: var(--Hover-button);
 }
 .button_color_blueLagoon:focus {
 	outline: 3px solid var(--Green-text);

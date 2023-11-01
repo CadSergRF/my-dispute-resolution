@@ -1,0 +1,7 @@
+.dispute-cardlist {
+	display: grid;
+	justify-items: center;
+	row-gap: 40px;
+	padding-top: 60px;
+	padding-bottom: 60px;
+}

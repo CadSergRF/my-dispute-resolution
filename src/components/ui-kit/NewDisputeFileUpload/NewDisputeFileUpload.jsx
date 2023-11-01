@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import uploadImg from '../../../Images/Done.svg';
+import uploadImg from '../../../Images/Logo_upload.svg';
 
 import './NewDisputeFileUpload.css';
 
@@ -10,8 +10,8 @@ export const NewDisputeFileUpload = ({ fileList, updateFileList }) => {
 	const maxQuantity = 4; // Ограничение количества файлов для загрузки
 
 	const [freeSize, setFreeSize] = useState(10); // Объем свободного места
-	const [isErrorSize, setIsErrorSize] = useState(false); // Ошибка: превышение maxFilesSize
-	const [isErrorQuantity, setIsErrorQuantity] = useState(false); // Ошибка: превышено допустимое количество файлов
+	// const [isErrorSize, setIsErrorSize] = useState(false); // Ошибка: превышение maxFilesSize
+	// const [isErrorQuantity, setIsErrorQuantity] = useState(false); // Ошибка: превышено допустимое количество файлов
 
 	// Для объекта File - перевод bytes в Мб(число)
 	const formatBytes = (bytes) => {
@@ -31,13 +31,11 @@ export const NewDisputeFileUpload = ({ fileList, updateFileList }) => {
 		});
 		const usedSpace = usedSpaceArr.reduce((res, item) => res + item);
 		if (usedSpace >= maxFilesSize) {
-			setIsErrorSize(true);
-			console.log(isErrorSize);
+			// setIsErrorSize(true);
 			return;
 		}
 		const freeSpace =
 			Math.round((maxFilesSize - usedSpace + Number.EPSILON) * 100) / 100;
-		console.log(freeSpace);
 		setFreeSize(freeSpace);
 	};
 
@@ -49,12 +47,10 @@ export const NewDisputeFileUpload = ({ fileList, updateFileList }) => {
 			handleUsedSize(updatedList);
 
 			if (updatedList.length > maxQuantity) {
-				setIsErrorQuantity(true);
-				console.log(isErrorQuantity);
+				// setIsErrorQuantity(true);
 				return;
 			}
 			updateFileList(updatedList);
-			// setFreeSize(maxFilesSize - usedSize);
 		}
 	};
 

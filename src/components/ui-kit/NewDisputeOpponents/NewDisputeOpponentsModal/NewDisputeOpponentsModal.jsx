@@ -11,6 +11,7 @@ export const NewDisputeOpponentsModal = ({
 }) => {
 	useEffect(() => {
 		if (!chooseOpponentModal) return undefined;
+
 		// Закрытие о Esc
 		const handleESC = (evt) => {
 			if (evt.key === 'Escape') {
@@ -31,11 +32,12 @@ export const NewDisputeOpponentsModal = ({
 			{searchOpponent.length > 0 ? (
 				searchOpponent.map((item) => (
 					<button
+						key={`${item.first_name} ${item.last_name}`}
 						className="new-dispute-opponents__modal-item"
 						onClick={() => handleAddOpponent(item)}
 						alt="Добавить оппонента"
 					>
-						{item}
+						{`${item.first_name} ${item.last_name}`}
 					</button>
 				))
 			) : (
@@ -51,7 +53,16 @@ export const NewDisputeOpponentsModal = ({
 };
 
 NewDisputeOpponentsModal.propTypes = {
-	searchOpponent: PropTypes.arrayOf(PropTypes.string).isRequired,
+	searchOpponent: PropTypes.arrayOf(
+		PropTypes.shape({
+			email: PropTypes.string,
+			id: PropTypes.number,
+			first_name: PropTypes.string,
+			last_name: PropTypes.string,
+			phone_number: PropTypes.string,
+			role: PropTypes.string,
+		})
+	).isRequired,
 	chooseOpponentModal: PropTypes.bool.isRequired,
 	handleAddOpponent: PropTypes.func.isRequired,
 	handleCloseOpponentsModal: PropTypes.func.isRequired,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 function Input({
+	id,
 	name,
 	label,
 	placeholder,
@@ -23,20 +24,27 @@ function Input({
 
 	return (
 		<div className="input">
-			<div className="input__box">
+			<div
+				className={
+					disabled
+						? 'input__box input__box_disabled'
+						: 'input__box input__box_active'
+				}
+			>
 				<div className="input__box-with-label">
 					<input
 						className="input__input"
+						id={id}
 						name={name}
-						id="userPassword"
 						placeholder={placeholder}
 						type={itemType}
 						value={value}
 						onChange={onChange}
 						disabled={disabled}
 						pattern={pattern}
+						autoComplete="off"
 					/>
-					<label htmlFor="userPassword" className="input__label">
+					<label htmlFor={id} className="input__label">
 						{label}
 					</label>
 				</div>
@@ -46,6 +54,7 @@ function Input({
 							isPassword ? 'input__icon input__icon-close-eye' : 'input__icon'
 						}
 						onClick={handleShowPassword}
+						type="button"
 					>
 						{' '}
 					</button>
@@ -58,6 +67,7 @@ function Input({
 
 export default Input;
 Input.propTypes = {
+	id: PropTypes.string,
 	name: PropTypes.string,
 	label: PropTypes.string,
 	placeholder: PropTypes.string,
@@ -70,6 +80,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+	id: '',
 	name: '',
 	label: '',
 	placeholder: '',
