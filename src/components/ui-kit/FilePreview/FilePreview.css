@@ -1,0 +1,48 @@
+.drop-file-preview__item {
+	box-sizing: border-box;
+	width: 90px;
+	height: 74px;
+	align-self: flex-end;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.drop-file-preview__img-wrapper {
+	width: 50px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.drop-file-preview__delete {
+	align-self: flex-end;
+	width: 19px;
+	height: 19px;
+	border: none;
+	background-image: url(../../../Images/Delete-element.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: contain;
+	cursor: pointer;
+}
+
+.drop-file-preview__img {
+	align-self: center;
+	width: 27.72px;
+	height: 30px;
+}
+
+.drop-file-preview__name {
+	margin: 0;
+	text-align: center;
+	font-family: 'Inter', sans-serif;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 12px;
+	color: #003d3d;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}

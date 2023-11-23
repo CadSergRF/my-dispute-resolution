@@ -44,3 +44,18 @@
 	line-height: 30px;
 	color: #6e7282;
 }
+
+.page-not-found__goBack-btn {
+	border: none;
+	background-color: transparent;
+	font-family: Inter;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 30px;
+	color: #00696a;
+	cursor: pointer;
+}
+
+.page-not-found__goBack-btn:hover {
+	font-weight: 600;
+}

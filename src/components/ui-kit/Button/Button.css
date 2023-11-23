@@ -1,0 +1,161 @@
+.button {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	/* шрифты */
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 19px;
+	letter-spacing: 0em;
+	cursor: pointer;
+}
+/* Отключаем cursor при disabled */
+
+.button_disabled_true {
+	cursor: default;
+}
+
+/* Позиционирование */
+
+.button_content_start {
+	justify-content: start;
+}
+
+/* Размеры */
+
+.button_size_mlarge {
+	min-width: 420px;
+	min-height: 60px;
+}
+.button_size_large {
+	padding: 20px 0 20px 0;
+	min-width: 380px;
+}
+.button_size_medium {
+	min-width: 310px;
+	min-height: 60px;
+}
+.button_size_small {
+	min-width: 244px;
+	min-height: 50px;
+}
+
+/* Прозрачная кнопка transperent  */
+
+.button_color_transperent {
+	background-color: transparent;
+	color: var(--Body-text);
+	border-radius: 6px;
+	font-weight: 400;
+}
+.button_color_transperent:hover {
+	background-color: var(--Select-hover);
+}
+/* Типы before */
+
+.button_color_transperent:before {
+	content: '';
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	padding: 0;
+	margin-right: 8px;
+	margin-left: 16px;
+	background-image: url('../../../Images/key-icon.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+}
+/* Типы before */
+.button_before_type_edit::before {
+	background-image: url('../../../Images/edit-icon.svg');
+}
+.button_before_type_exit::before {
+	background-image: url('../../../Images/exit-icon.svg');
+}
+.button_before_type_cancel::before {
+	background-image: url('../../../Images/cancel-icon.svg');
+}
+.button_before_changePassword::before {
+	background-image: url('../../../Images/key-icon.svg');
+}
+
+/* downy */
+
+.button_color_downy {
+	background-color: var(--Accent);
+	color: var(--Green-text);
+}
+.button_color_downy:hover {
+	/* нет в конфиге */
+	background-color: #56f2af;
+}
+.button_color_downy:focus {
+	outline: 3px solid var(--Green-text);
+}
+
+.button_color_downy:active:not([disabled]) {
+	box-shadow: 0px 4px 4px 0px #00000040 inset;
+}
+
+.button_color_downy:disabled {
+	opacity: 0.2;
+}
+
+/* blueLagoon */
+
+.button_color_blueLagoon {
+	background-color: var(--secondary-button);
+	color: var(--Background);
+}
+.button_color_blueLagoon:hover {
+	background-color: var(--Hover-button);
+}
+.button_color_blueLagoon:focus {
+	outline: 3px solid var(--Green-text);
+}
+.button_color_blueLagoon:active:not([disabled]) {
+	box-shadow: 0px 4px 4px 0px #00000040 inset;
+}
+.button_color_blueLagoon:disabled {
+	background-color: var(--Desabled-input);
+	color: var(--Background);
+}
+
+/* blueLagoon-inverted */
+
+.button_color_blueLagoon-inverted {
+	background-color: transparent;
+	color: var(--secondary-button);
+	outline: 1px solid var(--secondary-button);
+}
+.button_color_blueLagoon-inverted:hover {
+	background-color: var(--Select-hover);
+}
+.button_color_blueLagoon-inverted:focus {
+	outline: 2px solid var(--Green-text);
+}
+.button_color_blueLagoon-inverted:active:not([disabled]) {
+	outline: 1px solid var(--secondary-button);
+	box-shadow: 0px 4px 4px 0px #39675c40 inset;
+	background-color: var(--Background);
+}
+.button_color_blueLagoon-inverted:disabled {
+	outline: 1px solid var(--Desabled-input);
+	background-color: transparent;
+	color: var(--Desabled-input);
+}
+/* button box for storybook */
+
+.button-box {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}

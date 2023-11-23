@@ -1,0 +1,26 @@
+:root {
+	/* Primary colors */
+	--Accent: #77e6b6;
+	--Background: #ebeeee;
+	--Default-icon: #4d9697;
+	--Red-background: #fff4f4;
+	--Green-background: #edfff0;
+	--Orange-background: #fef8ee;
+
+	/* Component colors */
+	--secondary-button: #00696a;
+	--Hover-button: #098d8f;
+	--Select-hover: #f3f5f5;
+	--Desabled-input: #a6b5b5;
+	--Green-header: #003d3d;
+
+	/* Text colors */
+	--Body-text: #131713;
+	--Green-text: #002a2a;
+	--Stroke: #809595;
+	--Secondary-2: #474e75;
+
+	--Error: #f06464;
+	--Success: #07a044;
+	--Status: #f3a101;
+}

@@ -1,0 +1,34 @@
+.layout__container {
+	position: relative;
+	width: 100vw;
+}
+
+.align-flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.list-stile-scroll {
+	display: block;
+	max-height: calc(100vh - 108px);
+	overflow-y: auto;
+	scrollbar-color: var(--Desabled-input) rgba(228, 228, 228, 0);
+	scrollbar-width: thin;
+}
+
+.list-stile-scroll::-webkit-scrollbar {
+	width: 17px;
+}
+
+.list-stile-scroll::-webkit-scrollbar-track {
+	background-color: rgba(228, 228, 228, 0.1);
+	border-radius: 100px;
+}
+
+.list-stile-scroll::-webkit-scrollbar-thumb {
+	border-radius: 13px;
+	border: 6px solid transparent;
+	background-clip: content-box;
+	background-color: var(--Desabled-input);
+}

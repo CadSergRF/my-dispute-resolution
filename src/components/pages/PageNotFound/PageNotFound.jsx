@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
-import Button from '../../button/Button';
+import Button from '../../ui-kit/Button/Button';
 
 import PageNotFoundLogo from '../../../Images/PageNotFoundLogo.svg';
 import './PageNotFound.css';
@@ -11,7 +11,11 @@ const PageNotFound = () => {
 	const navigate = useNavigate();
 
 	const goHome = () => {
-		navigate('/home');
+		navigate('/');
+	};
+
+	const goBack = () => {
+		navigate(-1);
 	};
 
 	return (
@@ -29,9 +33,12 @@ const PageNotFound = () => {
 					</p>
 				</div>
 				<Button label="Перейти на главную" type="button" onClick={goHome} />
+				<button className="page-not-found__goBack-btn" onClick={goBack}>
+					Вернуться назад
+				</button>
 			</section>
 		</article>
 	);
 };
 
-export default PageNotFound;
+export { PageNotFound };

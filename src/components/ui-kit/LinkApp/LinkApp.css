@@ -1,0 +1,14 @@
+.link-app {
+	color: var(--Accent, #3547e9);
+	font-variant-numeric: lining-nums tabular-nums;
+	text-decoration: none;
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 140.023%;
+}
+
+.link-app:hover {
+	opacity: 0.7;
+}

@@ -1,0 +1,168 @@
+.dispute-card {
+	display: flex;
+	max-width: 1370px;
+	min-width: 1370px;
+}
+.dispute-card__container {
+	box-sizing: border-box;
+	padding: 30px 0 30px 70px;
+	font-family: Inter;
+	background-color: white;
+	display: flex;
+	box-shadow: 0px 4px 24px 0px #003d3d26;
+	border-radius: 10px;
+	flex-direction: row;
+	position: relative;
+}
+.dispute-card__container:hover {
+	outline: 1px solid var(--Stroke);
+	cursor: pointer;
+}
+.dispute-card__header {
+	display: flex;
+	flex-direction: row;
+}
+.dispute-card__title {
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+}
+
+.dispute-card__closed-time {
+	padding: 0;
+	margin: 0;
+	margin-left: 40px;
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+	color: #131713;
+}
+
+.dispute-card__content {
+	box-sizing: border-box;
+	/* padding: 0 60px 0 60px; */
+	margin: 0 60px 0 60px;
+	width: 850px;
+	min-height: 132px;
+}
+.dispute-card__text {
+	margin: 0;
+	padding: 0;
+	margin-top: 24px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+
+	/* переполнение */
+	/* height: 154px; */
+	display: -webkit-box;
+	-webkit-line-clamp: 7;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.dispute-card__files {
+	display: flex;
+	margin-top: 14px;
+	flex-direction: row;
+}
+.dispute-card__file-link {
+	margin-right: 16px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 17px;
+	letter-spacing: 0px;
+	text-align: left;
+	display: flex;
+	color: var(--Green-heade);
+	max-width: 200px;
+	text-decoration: none;
+}
+.dispute-card__filename {
+	/* display: flex;
+	align-items: center; */
+	padding: 0;
+	margin: 0;
+	padding-top: 8.5px;
+	padding-left: 4px;
+	/* max-width: 158px; */
+	max-width: 100%;
+	white-space: nowrap; /* Текст не переносится */
+	overflow: hidden; /* Скрыть текст, который не помещается */
+	text-overflow: ellipsis; /* Добавить троеточие */
+}
+.dispute-card__status {
+	padding-left: 20px;
+	margin-right: 20px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	text-align: start;
+	font-family: Inter;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+	letter-spacing: 0px;
+	text-align: left;
+	background-color: var(--Green-background);
+	width: 200px;
+	height: 42px;
+	border-radius: 10px;
+}
+.dispute-card__status::before {
+	content: '';
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	/* margin-top: 4px; */
+	border-radius: 50%;
+	margin-right: 12px;
+}
+.dispute-card__status_type_closed {
+	background-color: var(--Green-background);
+}
+.dispute-card__status_type_started {
+	background-color: var(--Orange-background);
+}
+.dispute-card__status_type_not_started {
+	background-color: var(--Red-background);
+}
+
+.dispute-card__status_type_closed::before {
+	background-color: var(--Success);
+}
+.dispute-card__status_type_started::before {
+	background-color: var(--Status);
+}
+.dispute-card__status_type_not_started::before {
+	background-color: var(--Error);
+}
+
+.dispute-card__option {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	margin-left: 20px;
+	width: 90px;
+	height: 40px;
+	background-image: url(./../../Images/Menu_Icon.svg);
+
+	background-color: transparent;
+	cursor: pointer;
+}
+.dispute-card__option-container {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	right: 16px;
+	top: 20px;
+	z-index: 5;
+}
